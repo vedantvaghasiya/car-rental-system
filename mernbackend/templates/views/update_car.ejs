@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <link rel="stylesheet" href="css/addcar.css"> -->
+    <!-- <link rel="stylesheet"  href="css/addcar.css"> -->
+    <link href="/css/addcar.css" rel="stylesheet" type="text/css">
+
+
+</head>       
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&family=Tilt+Neon&family=Varela+Round&display=swap');
+
+.btnadmin {
+    font-size: 23px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btnadmin:hover {
+    color: #000000;
+    font-weight: bold;
+}
+
+.div-btn {
+    border: 2px solid black;
+    width: 115px;
+    margin: 23px;
+    text-align: center;
+    background-color: #EEF1FF;
+    position: relative;
+    left: 615px;
+    border-radius: 7px;
+}
+
+
+.div-btn:hover {
+    background-color: #b5e5ff;
+}
+
+h1 {
+    background-color: rgb(222, 240, 255);
+    margin: auto;
+    width: 50%;
+    border: 3px solid #000;
+    padding: 10px;
+    text-align: center;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-family: 'Tilt Neon', cursive;
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+height: 100%;
+width: 160px;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: #111;
+overflow-x: hidden;
+padding-top: 20px;
+}
+
+.sidenav a {
+padding: 6px 8px 6px 16px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+}
+
+.sidenav a:hover {
+color: #f1f1f1;
+}
+
+.main {
+margin-left: 160px; /* Same as the width of the sidenav */
+font-size: 28px; /* Increased text to enable scrolling */
+padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+
+}
+
+</style>
+<body>
+
+    <nav>
+        <div class="sidenav">
+
+            <div class="bx bx-menu" id="menu-icon"></div>
+            
+            <a href="#" class="btnadmin">Edit-car</a>
+            <br><br>
+
+            <a href="/showcaradmin" class="btnadmin">Show Car</a>
+    
+          </div>
+        </nav>
+     <!-- form handling -->
+     <form action="/api/users/<%= id%>" method="post" id="add_user" enctype="multipart/form-data">
+        <div class="new_user">
+            <div class="form-group">
+                <label for="name" class="text-light">Car Name</label>
+                <input type="hidden" name="id" value=''>
+                <input type="text" name="name" value='<%= name   %>' placeholder="car name">
+            </div>
+            <div class="form-group">
+                <label for="name" class="text-light">Price</label>
+                <input type="number" name="price" value="<%= price   %>" placeholder="Price">
+            </div>
+            <div class="form-group">
+                <label for="name" class="text-light">Description</label>
+                <input type="text" name="description" value="<%= description%>" placeholder="car description">
+            </div>
+    
+            <div class="form-group">
+                <label for="name" class="text-light">Seats</label>
+                <input type="number" name="seats" value="<%= seats   %>" placeholder="seats">
+            </div>
+            
+          
+            <div class="form-group">
+                <label for="gender" class="text-light">Fuel Type</label>
+                <div class="radio inline">
+                    <input type="radio" id="radio-2" name="fuelType" value="petrol"<%if(fuelType == "petrol"){%>
+                        <%="checked"%>
+                    <%}%> >
+                    <label for="radio-2" class="radio-label">Petrol</label>
+                </div>
+                <div class="radio inline">
+                    <input type="radio" id="radio-3" name="fuelType" value="diesel" <%if(fuelType == "diesel"){%>
+                        <%="checked"%>
+                    <%}%>>
+                    <label for="radio-3" class="radio-label">Diesel</label>
+                </div>
+            </div>
+    
+            <!-- <div class="form-group">
+                <label for="gender" class="text-light">Status</label>
+                <div class="radio inline">
+                    <input type="radio" id="radio-4" name="status" value="Active" >
+                    <label for="radio-4" class="radio-label">Active</label>
+                </div>
+                <div class="radio inline">
+                    <input type="radio" id="radio-5" name="status" value="Inactive" >
+                    <label for="radio-5" class="radio-label">Inactive</label>
+                </div>
+            </div> -->
+
+        <div class="form-group">
+            <label for="name" class="text-light">image</label>
+            <input type="file" name="image" value="<%= image %>">
+
+        </div>
+    
+            <div class="form-group">
+                <button type="submit" class="btn text-dark update">Add</button>
+            </div>
+    
+        </div>
+    </form>
+</body>
+</html>

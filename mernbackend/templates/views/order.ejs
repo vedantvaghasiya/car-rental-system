@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/addcar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" type="text/css" href="css/addcar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+crossorigin="anonymous"></script>
+</head>
+<style>
+       .confirmButton {
+      background-color: #ffffff;
+      color: #000000;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="sidenav">
+            <a href="/admin" class="logo"><img src="img/jeep.png" alt=""></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <a href="/addcar" class="btnadmin">Add Car</a>
+            <a href="/showcaradmin" class="btnadmin">Show Car</a>
+    
+            <a href="/order" class="btnadmin">Order</a>
+            <a href="/users" class="btnadmin">Customer</a>
+    
+          </div>
+        </nav>
+
+
+        <div class="container">
+
+    
+    <main id="site-main">
+        <div class="container">
+            
+            <!-- index.ejs -->
+
+            <!-- <button onclick="exportToExcel2(this)">Export to Excel</button> -->
+            <!-- <a id="checkAllTopicCheckBoxes" href="#">Export to Excel</a> -->
+
+
+
+            <!-- form handling -->
+            <form action="/exportorder" method="POST">
+
+
+                <div class="box-nav d-flex justify-between">
+                    <button class="border-shadowtwo" type="submit">
+                        <span class="text-gradient">
+                            Export To Excel
+                        </span>
+                    </button>
+                </div>
+
+                <br>
+
+
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Car Name</th>
+                            <th>Pickup-location</th>
+                            <th>Dropoff-location</th>
+                            <th>Pickup Date</th>
+                            <th>Dropoff Date</th>
+                            <th>total</th>
+                            <th>Confirm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < car.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= i + 1 %>
+                                </td>
+                                <td>
+                                    <%= car[i].carName %>
+                                </td>
+                                <td>
+                                    <%= car[i].Pickup %>
+                                </td>
+                                <td>
+                                    <%= car[i].Dropoff %>
+                                </td>
+                                <td>
+                                    <%= car[i].PickupDate%>
+                                </td>
+                                <td>
+                                    <%= car[i].DropoffDate %>
+                                </td>
+                                <td>
+                                    <%= car[i].total %>
+                                </td>
+                                <td>
+                                    <!-- <a href="/order" id="confirmButton" >
+                                        <span class="text-gradient"><i class="fa-solid fa-check"></i></span>
+                                    </a> -->
+                                    <a class="confirmButton" data-confirm-color="green"><i class="fa-solid fa-check"></i></a>
+                                    <a class="btn border-shadow delete" data-id=<%=car[i]._id%> >
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% } %>
+                   
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+</div>
+
+</body>
+
+
+
+<script>
+    if (window.location.pathname == "/order") {
+        $ondelete = $(".table tbody td a.delete");
+        $ondelete.click(function () {
+            var id = $(this).attr("data-id")
+            var request = {
+                "url": `http://localhost:3000/api/users/order/${id}`,
+                "method": "DELETE"
+            }
+            if (1>0) {
+                $.ajax(request).done(function (response) {
+                    // alert("Data Deleted Successfully!");
+                    location.reload();
+                })
+            }
+        })
+    }
+</script>
+
+<script>
+      $(document).ready(function() {
+      var confirmButtons = $('.confirmButton');
+
+    //   Set the initial color of the buttons from local storage
+    //   confirmButtons.each(function() {
+    //     var confirmColor = localStorage.getItem($(this).attr('data-confirm-color'));
+    //     if (confirmColor) {
+    //       $(this).css('background-color', confirmColor);
+    //     }
+    //   });
+
+      // Listen for click events on the buttons
+      confirmButtons.click(function() {
+        alert('Confirm order');
+        // alert('comming soon');
+        var confirmColor = $(this).attr('data-confirm-color');
+        $(this).css('background-color', confirmColor);
+        localStorage.setItem(confirmColor, confirmColor);
+      });
+    });
+  </script>
+</script>
+
+
+
+
+
+</html>

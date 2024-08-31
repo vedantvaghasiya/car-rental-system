@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/addcar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/addcar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav>
+        <div class="sidenav">
+            <a href="/admin" class="logo"><img src="img/jeep.png" alt=""></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <a href="/addcar" class="btnadmin">Add Car</a>
+            <a href="/showcaradmin" class="btnadmin">Show Car</a>
+    
+            <a href="/order" class="btnadmin">Order</a>
+            <a href="/users" class="btnadmin">Customer</a>
+    
+          </div>
+        </nav>
+
+
+        <div class="container">
+
+    
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-user" class="border-shadow">
+                    <span class="text-gradient">add car <i class="fas fa-user"></i>
+                    </span>
+                </a>
+            </div>
+            <!-- index.ejs -->
+
+            <!-- <button onclick="exportToExcel2(this)">Export to Excel</button> -->
+            <!-- <a id="checkAllTopicCheckBoxes" href="#">Export to Excel</a> -->
+
+
+
+            <!-- form handling -->
+            <form action="/exportdata" method="POST">
+                <div class="box-nav d-flex justify-between">
+                    <button class="border-shadowtwo" type="submit">
+                        <span class="text-gradient">
+                            Export To Excel
+                        </span>
+                    </button>
+                </div>
+
+                <br>
+
+
+                <table id="carTable" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>price</th>
+                            <th>description</th>
+                            <th>fuelType</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < car.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= i + 1 %>
+                                </td>
+                                <td>
+                                    <%= car[i].name %>
+                                </td>
+                                <td>
+                                    <%= car[i].price %>
+                                </td>
+                                <td>
+                                    <%= car[i].description.substring(0,15)%>
+                                </td>
+                                <td>
+                                    <%= car[i].fuelType %>
+                                </td>
+
+                                <td>
+                                    <a href="/update-car/<%= car[i]._id%>" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a class="btn border-shadow delete" data-id=<%=car[i]._id%> >
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"></script>
+
+<script>
+    if (window.location.pathname == "/showcaradmin") {
+        $ondelete = $(".table tbody td a.delete");
+        $ondelete.click(function () {
+            var id = $(this).attr("data-id")
+            var request = {
+                "url": `http://localhost:3000/api/users/${id}`,
+                "method": "DELETE"
+            }
+            if (confirm("Do you really want to delete this record?")) {
+                $.ajax(request).done(function (response) {
+                    alert("Data Deleted Successfully!");
+                    location.reload();
+                })
+            }
+        })
+    }
+</script>
+
+<script>
+
+
+
+// document.getElementById ("checkAllTopicCheckBoxes").addEventListener ("click", exportToExcel2, true);
+// import { MongoClient } from 'mongodb';
+//     function exportToExcel2() {
+//         console.log('hello');
+//         MongoClient.connect('mongodb://127.0.0.1:27017/Car-Rental', function (err, db) {
+//             if (err) throw err;
+//             var collection = db.collection('cardbs');
+//             collection.find().toArray(function (err, data) {
+//                 if (err) throw err;
+//                 var workbook = XLSX.utils.book_new();
+//                 var sheet = XLSX.utils.json_to_sheet(data);
+//                 XLSX.utils.book_append_sheet(workbook, sheet, 'Sheet1');
+//                 XLSX.writeFile(workbook, 'data.xlsx');
+//                 db.close();
+//             });
+//         });
+//     }
+</script>
+<!-- <script src="js/export.js"></script> -->
+
+</html>

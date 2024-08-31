@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<style>
+    .card {
+      box-shadow: 0 16px 20px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 30%;
+
+    }
+    
+    .card:hover {
+      box-shadow: 0 20px 40px 0 rgba(0,0,0,0.2);
+    }
+    .container {
+      padding: 2px 16px;
+
+
+    }
+    .container-button {
+      padding: 2px 16px;
+      margin-left: 400px;
+      margin-top: 50px;
+      display: flex;
+      gap: 70px;
+    }
+    h1{
+        text-align: center;
+    }
+    </style>
+
+<body>
+<nav>
+    <div class="sidenav">
+        <a href="#" class="logo"><img src="img/jeep.png" alt=""></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <a href="/addcar" class="btnadmin">Add Car</a>
+        <a href="/showcaradmin" class="btnadmin">Show Car</a>
+
+        <a href="/order" class="btnadmin">Order</a>
+        <a href="/users" class="btnadmin">Customer</a>
+
+      </div>
+    </nav>
+<div class="main-admin">
+    <div class="admin">
+        <h1>Admin Dashboard </h1>
+    </div>
+</div>
+<!-- 
+    <div class="div-btn">
+        <a href="/addcar" class="btnadmin">add car</a>
+    </div>
+
+    <div class="div-btn">
+        <a href="/showcaradmin" class="btnadmin">show car</a>
+    </div> -->
+    <div class="container-button">
+         <div class="card">
+        <a href="/addcar"><img src="img/add-car.png" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h1>Add Car</h1> 
+        </div>
+    </a>
+      </div>
+
+      <div class="card">
+        <a href="/showcaradmin"><img src="img/showcar.png" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h1>Show Car</h1> 
+        </div>
+    </a>
+      </div>
+
+   
+    </div>
+
+
+    <div class="container-button">
+
+
+    <div class="card">
+        <a href="/order"><img src="img/order.png" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h1>Orders</h1> 
+        </div>
+    </a>
+      </div>
+
+      <div class="card">
+        <a href="/users"><img src="img/users.png" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h1>Users</h1> 
+        </div>
+      </div>
+    </a>
+   </div>
+
+
+
+</body>
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+
+</html>

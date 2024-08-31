@@ -1,0 +1,17 @@
+<% for(var i = 0; i < car.length; i++) { %>
+    <tr>
+    <td>1</td>
+    <td><%= car[i].name %></td>
+    <td><%= car[i].price %></td>
+    <td><%= car[i].description %></td>
+    <td><%= car[i].seats %></td>
+    <!-- <td>
+        <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td> -->
+</tr>
+<% } %>

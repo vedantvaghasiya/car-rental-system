@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>car rentel</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- box icons -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+</head>
+
+
+<body>
+    <!-- header  -->
+    <header id="reload">
+        <a href="#" class="logo"><img src="img/jeep.png" alt=""></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="#home">home</a></li>
+            <li><a href="#services">ride</a></li>
+            <li><a href="#ride">services</a></li>
+            <li><a href="#reviews">reviews</a></li>
+            <li><a href="#FAQs">FAQs</a></li>
+            <li><a href="#about">about</a></li>
+            <!-- <li><a href="/bookings/:id">your order</a></li> -->
+
+        </ul>
+        <div class="header-btn">
+
+    <a href="/profile" class="sign-in"><%= name %></a>
+    
+
+            <a href="/logout" class="sign-out">logout</a>
+         
+      
+        </div>
+        
+    </header>
+    <hr>
+
+    <!-- home  -->
+    <section class="home" id="home">
+
+        <div class="text">
+            <h1><span>Looking</span> to <br>rent a car</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat minus dolore consectetur ipsa facilis. Voluptates sit animi ipsa fuga debitis!</p>
+        </div>
+     
+        </div>
+
+
+
+        <div class="form-container">
+            <form action="">
+                <div class="input-box">
+                    <span>Location</span>
+                    <select id="cars" name="cars">
+                        <option value="volvo">katargam</option>
+                        <option value="saab">varachha</option>
+                        <option value="mercedes">mota varachha</option>
+                        <option value="audi">adajan</option>
+                      </select>
+                      
+                </div>
+
+                <div class="input-box">
+                    <span>Pick-Up Date</span>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="input-box">
+                    <span>Return Date</span>
+                    <input type="date" name="" id="">
+                </div>
+                <input type="submit" name="" id="" class="btn">
+            </form>
+        </div>
+    </section>
+
+
+    <!-- services -->
+
+    <section class="services" id="services">
+        <div class="heading">
+            <span>Best Services</span>
+            <h1>Explore Out TopDeals <br> From Top Rated Dealers</h1>
+        </div>
+        <div class="services-container">
+
+            <% for(var i = 0; i < users.length; i++) { %>
+                <div class="box">
+                    <div class="box-img">
+                        <img src=<%= users[i].image %> alt="">
+                    </div>
+                    <p>2017</p>
+                    <h3><%= users[i].name %></h3>
+                    <h2><%= users[i].price %> ₹<span>/hour</span> </h2>
+                    <a href="/car/<%=users[i]._id%>" class="btn">rent now</a>
+                </div>
+                <% } %>
+        </div>
+    </section>
+
+
+
+    <!-- ride section  -->
+    <section class="ride" id="ride">
+        <div class="heading">
+            <span>How It's work</span>
+            <h1>Rent With 3 Easy Steps</h1>
+        </div>
+        <div class="ride-container">
+            <div class="box">
+                <i class='bx bxs-map'></i>
+                <h2>Choose a Location</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nihil voluptas doloremque aliquam,
+                    dolore eaque reprehenderit temporibus deleniti aliquid repellendus!</p>
+            </div>
+            <div class="box">
+                <i class='bx bxs-calendar'></i>
+                <h2>Pick-Up Date</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nihil voluptas doloremque aliquam,
+                    dolore eaque reprehenderit temporibus deleniti aliquid repellendus!</p>
+            </div>
+            <div class="box">
+                <i class='bx bx-calendar'></i>
+                <h2>Book A Car</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nihil voluptas doloremque aliquam,
+                    dolore eaque reprehenderit temporibus deleniti aliquid repellendus!</p>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <!-- reviews -->
+    <section class="reviews" id="reviews">
+        <div class="heading">
+            <span>Reviews</span>
+            <h1>Whats Our Customer Say</h1>
+        </div>
+        <div class="reviews-container">
+            <div class="box">
+                <div class="rev-img">
+                    <img src="img/rev1.jpg" alt="">
+                </div>
+                <h2>deep</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et voluptatibus voluptatem quo in nesciunt
+                    nulla ullam autem illo.</p>
+            </div>
+            <div class="box">
+                <div class="rev-img">
+                    <img src="img/rev2.jpg" alt="">
+                </div>
+                <h2>prince</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et voluptatibus voluptatem quo in nesciunt
+                    nulla ullam autem illo.</p>
+
+            </div>
+            <div class="box">
+                <div class="rev-img">
+                    <img src="img/rev3.jpg" alt="">
+                </div>
+                <h2>alia</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et voluptatibus voluptatem quo in nesciunt
+                    nulla ullam autem illo.</p>
+
+            </div>
+        </div>
+    </section>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <!-- FAQs -->
+    <section class="FAQs" id="FAQs">
+        <div class="heading">
+            <span>FAQs</span>
+            <h1>Customer questions answered</h1>
+        </div>
+        <div class="FAQs-container">
+            <div class="box">
+
+                <h3>1. How to rent a car in Surat?
+                </h3>
+
+                <p>You can rent a car in Surat either by booking online on Savaari's website or by calling us on xxx00x00x.
+
+                </p>
+            </div>
+            <div class="box">
+
+                <h3>2. What are the car rental options available in Surat?
+                </h3>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et voluptatibus voluptatem quo in nesciunt
+                    nulla ullam autem illo.</p>
+
+            </div>
+            <div class="box">
+
+                <h3>3. What is the per day car rental fare in Surat?
+                </h3>
+
+                <p>The per day or full day car rental price from Surat starts from as low as Rs 9/km ranging from hatchbacks, sedans, SUVs and tempo travellers
+
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
+<br>
+<br>
+<br>
+<br>
+<!-- about -->
+<section class="about" id="about">
+    <div class="heading">
+        <span>About Us</span>
+        <h1>Best Customer Experience</h1>
+    </div>
+
+    </div>
+
+    <div class="about-container">
+        <div class="about-img">
+
+
+            <img src="img/about.png" alt="">
+
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati nihil officia mollitia ullam.
+                Odit,
+                itaque! Rerum, magni. Similique ea quaerat magni ipsa!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati nihil officia mollitia ullam.
+                Odit,
+                itaque! Rerum, magni. Similique ea quaerat magni ipsa!</p>
+
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+</section>
+
+
+
+
+<div class="copyright">
+    <p>&#169; CAR2GO</p>
+    <div class="social">
+        <a href="https://www.facebook.com/"><i class='bx bxl-facebook'></i>
+        <a href="https://twitter.com/"><i class='bx bxl-twitter'></i>
+        <a href="https://instagram.com/"><i class='bx bxl-instagram'></i>
+
+        </a>
+    </div>
+</div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- link to js -->
+    <script src="js/main.js"></script>
+   
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<form action="/api/users" method="POST" id="add_user" enctype="multipart/form-data">
+    <div class="new_user">
+        <div class="form-group">
+            <label for="name" class="text-light">Car Name</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="name" value="" placeholder="car name">
+        </div>
+        <div class="form-group">
+            <label for="name" class="text-light">Price</label>
+            <input type="number" name="price" value="" placeholder="Price">
+        </div>
+        <div class="form-group">
+            <label for="name" class="text-light">Description</label>
+            <input type="text" name="description" value="" placeholder="car description">
+        </div>
+
+        <div class="form-group">
+            <label for="name" class="text-light">Seats</label>
+            <input type="number" name="seats" value="" placeholder="seats">
+        </div>
+        
+      
+        <div class="form-group">
+            <label for="gender" class="text-light">Fuel Type</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="fuelType" value="petrol" >
+                <label for="radio-2" class="radio-label">Petrol</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="fuelType" value="diesel" >
+                <label for="radio-3" class="radio-label">Diesel</label>
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="gender" class="text-light">Status</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="status" value="Active" >
+                <label for="radio-4" class="radio-label">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="status" value="Inactive" >
+                <label for="radio-5" class="radio-label">Inactive</label>
+            </div>
+        </div> -->
+
+        <div class="form-group">
+            <label for="name" class="text-light">image</label>
+            <input type="file" name="avatar">
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Add</button>
+        </div>
+
+    </div>
+</form>

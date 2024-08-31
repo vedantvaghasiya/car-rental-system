@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/addcar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" type="text/css" href="css/addcar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="sidenav">
+            <a href="/admin" class="logo"><img src="img/jeep.png" alt=""></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <a href="/addcar" class="btnadmin">Add Car</a>
+            <a href="/showcaradmin" class="btnadmin">Show Car</a>
+    
+            <a href="/order" class="btnadmin">Order</a>
+            <a href="/users" class="btnadmin">Customer</a>
+    
+          </div>
+        </nav>
+
+
+        <div class="container">
+
+    
+    <main id="site-main">
+        <div class="container">
+           
+            <!-- index.ejs -->
+
+            <!-- <button onclick="exportToExcel2(this)">Export to Excel</button> -->
+            <!-- <a id="checkAllTopicCheckBoxes" href="#">Export to Excel</a> -->
+
+
+
+            <!-- form handling -->
+            <form action="/exportorder" method="POST">
+
+
+                <!-- <div class="box-nav d-flex justify-between">
+                    <button class="border-shadowtwo" type="submit">
+                        <span class="text-gradient">
+                            Export To Excel
+                        </span>
+                    </button>
+                </div> -->
+
+                <br>
+
+
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>name</th>
+                            <th>Email</th>
+                            <th>password</th>
+                            <th>Confirm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < user.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= i + 1 %>
+                                </td>
+                                <td>
+                                    <%= user[i].firstname %>
+                                </td>
+                                <td>
+                                    <%= user[i].email %>
+
+
+                                </td>
+                                <td>
+                                    <%= user[i].password %>
+
+                                </td>
+                         
+                                <td>
+                                    <a class="btn border-shadow delete" data-id=<%=user[i]._id%> >
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% } %>
+
+                   
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+</div>
+
+
+
+</body>
+
+
+
+<script>
+    if (window.location.pathname == "/registeruser") {
+        $ondelete = $(".table tbody td a.delete");
+        $ondelete.click(function () {
+            var id = $(this).attr("data-id")
+            var request = {
+                "url": `http://localhost:3000/api/users/users/${id}`,
+                "method": "DELETE"
+            }
+            if (confirm("Do you really want to delete this record?")) {
+                $.ajax(request).done(function (response) {
+                    // alert("Data Deleted Successfully!");
+                    location.reload();
+                })
+            }
+        })
+    }
+</script>
+
+
+
+
+
+
+
+</html>

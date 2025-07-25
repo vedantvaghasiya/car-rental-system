@@ -2,23 +2,7 @@
 
 ## 📝 Description
 
-The **Car Rental System** is a full-stack web application designed to simplify and streamline the process of renting cars. Built with a focus on usability and performance, the system allows an administrator to manage cars, customers, and bookings efficiently. Customers can register, log in, view available vehicles, and make bookings through a user-friendly interface.
-
-This project aims to enhance the car rental experience by providing a modern and intuitive platform for both customers and admin users.
-
----
-
-## 📚 Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Dependencies](#dependencies)
-- [Examples](#examples)
-- [Troubleshooting](#troubleshooting)
-- [Contributors](#contributors)
-- [License](#license)
+The main goal of our project is to build a simple and user-friendly Car Rental System for a car rental company. This system helps the admin manage cars, customers, and bookings more easily. The admin can add, edit, or delete car details, confirm or cancel customer bookings, and handle any customer issues or feedback. On the other side, customers can sign up, log in, check available cars, and book them directly through the website. It makes the whole process faster and more organized for both the admin and the users, improving the overall experience and making car rentals more efficient.
 
 ---
 
@@ -55,53 +39,23 @@ Make sure you have the following installed on your machine:
 2. **Install backend dependencies**:
 
     ```bash
-    cd car-rental-system/mernbackend
     npm install
     ```
 
-3. **Install frontend dependencies** (if frontend exists in a separate folder):
+3. Navigate to the backend source folder:
 
     ```bash
-    cd ../mernfrontend
-    npm install
+    cd car-rental-system/mernbackend/src
     ```
 
-4. **Ensure MongoDB is running locally**, and open **MongoDB Compass** to monitor data.
-
----
-
-## 🚀 Usage
-
-1. Navigate to the backend source folder:
-
-    ```bash
-    cd mernbackend/src
-    ```
-
-2. Start the development server:
+4. Start the development server:
 
     ```bash
     npm run dev
-    ```
-
-3. Make sure the backend is connected to your local MongoDB database (configured in your `.env` file).
-
-4. Start the frontend (if applicable):
-
-    ```bash
-    cd ../../mernfrontend
-    npm start
     ```
 
 5. Open your browser and visit: `http://localhost:3000`
 
 ---
 
-## ⚙️ Configuration
 
-Create a `.env` file in the backend directory (`mernbackend/src/`) with the following environment variables:
-
-```env
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/car-rental-db
-JWT_SECRET=your_jwt_secret
